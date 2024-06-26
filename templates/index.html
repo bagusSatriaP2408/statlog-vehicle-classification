@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediksi Siluet Kendaraan</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <div>
+            <h2 class="mb-4">Prediksi Siluet Kendaraan</h2>
+            <form action="/" method="post" class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="compactness">Compactness</label>
+                        <input type="number" class="form-control" id="compactness" name="compactness" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="circularity">Circularity</label>
+                        <input type="number" class="form-control" id="circularity" name="circularity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="distance_circularity">Distance Circularity</label>
+                        <input type="number" class="form-control" id="distance_circularity" name="distance_circularity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="radius_ratio">Radius Ratio</label>
+                        <input type="number" class="form-control" id="radius_ratio" name="radius_ratio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pr_axis_aspect_ratio">PR Axis Aspect Ratio</label>
+                        <input type="number" class="form-control" id="pr_axis_aspect_ratio" name="pr_axis_aspect_ratio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="max_length_aspect_ratio">Max Length Aspect Ratio</label>
+                        <input type="number" class="form-control" id="max_length_aspect_ratio" name="max_length_aspect_ratio" required>
+                    </div>
+                    
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="scatter_ratio">Scatter Ratio</label>
+                        <input type="number" class="form-control" id="scatter_ratio" name="scatter_ratio" required>
+                    </div>  
+                    <div class="form-group">
+                        <label for="elongatedness">Elongatedness</label>
+                        <input type="number" class="form-control" id="elongatedness" name="elongatedness" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pr_axis_rectangularity">PR Axis Rectangularity</label>
+                        <input type="number" class="form-control" id="pr_axis_rectangularity" name="pr_axis_rectangularity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="max_length_rectangularity">Max Length Rectangularity</label>
+                        <input type="number" class="form-control" id="max_length_rectangularity" name="max_length_rectangularity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="scaled_variance_along_major_axis">Scaled Variance Along Major Axis</label>
+                        <input type="number" class="form-control" id="scaled_variance_along_major_axis" name="scaled_variance_along_major_axis" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="scaled_variance_along_minor_axis">Scaled Variance Along Minor Axis</label>
+                        <input type="number" class="form-control" id="scaled_variance_along_minor_axis" name="scaled_variance_along_minor_axis" required>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label for="scaled_radius_of_gyration">Scaled Radius of Gyration</label>
+                        <input type="number" class="form-control" id="scaled_radius_of_gyration" name="scaled_radius_of_gyration" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="skewness_about_major_axis">Skewness About Major Axis</label>
+                        <input type="number" class="form-control" id="skewness_about_major_axis" name="skewness_about_major_axis" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="skewness_about_minor_axis">Skewness About Minor Axis</label>
+                        <input type="number" class="form-control" id="skewness_about_minor_axis" name="skewness_about_minor_axis" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kurtosis_about_minor_axis">Kurtosis About Minor Axis</label>
+                        <input type="number" class="form-control" id="kurtosis_about_minor_axis" name="kurtosis_about_minor_axis" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="kurtosis_about_major_axis">Kurtosis About Major Axis</label>
+                        <input type="number" class="form-control" id="kurtosis_about_major_axis" name="kurtosis_about_major_axis" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="hollows_ratio">Hollows Ratio</label>
+                        <input type="number" class="form-control" id="hollows_ratio" name="hollows_ratio" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-dark col-10 m-auto">Prediksi</button>
+            </form>
+        </div>
+    </div>
+    <div class="container px-5">
+        {% if prediction is not none %}
+            <div class="mt-4 alert alert-info">
+                <strong>Akurasi : 83%</strong>
+            </div>
+            <div class="mt-4 alert alert-info">
+                <strong>Prediksi:</strong>
+                {% if prediction == 0 %}
+                    Bus
+                {% elif prediction == 1 %}
+                    Opel
+                {% elif prediction == 2 %}
+                    Saab
+                {% elif prediction == 3 %}
+                    Van
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>    
+</body>
+</html>
